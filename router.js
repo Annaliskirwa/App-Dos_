@@ -1,2 +1,8 @@
-console.log("I am executed immediately")
-module.exports = "I am the export for the router file"
+
+module.exports = {
+    name: " MeowsAlot",
+    species: "Cat",
+    meow : function(){
+console.log("Meoooowww")
+    }
+}
