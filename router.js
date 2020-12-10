@@ -1,8 +1,12 @@
+const express = require ('express')
+const router = express.Router()
 
-module.exports = {
-    name: " MeowsAlot",
-    species: "Cat",
-    meow : function(){
-console.log("Meoooowww")
-    }
-}
+router.get('/', function(req, res){
+    res.render('home-guest')
+})
+ 
+router.get('/about', function(req, res){
+    res.send("This is my about page")
+})
+
+module.exports = router
