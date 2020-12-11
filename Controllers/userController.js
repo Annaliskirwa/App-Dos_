@@ -11,6 +11,7 @@ exports.logout = function(){
 exports.register = function(req, res){
   let user = new User()
   user.homePlanet
+  user.jump
    res.send("Thanks for trying to register") 
 }
 
