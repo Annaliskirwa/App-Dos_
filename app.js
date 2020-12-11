@@ -1,8 +1,11 @@
+const { urlencoded } = require('express')
 const express = require ('express')
 const app = express()
 
 const router = require('./router')
 
+app.use(urlencoded({extended: false}))
+app.use (express.json())
 
 app.use(express.static('public'))
 app.set('views', 'views')
