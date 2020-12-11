@@ -9,9 +9,8 @@ exports.logout = function(){
 }
 
 exports.register = function(req, res){
-  let user = new User()
-  user.homePlanet
-  user.jump
+  let user = new User(req.body)
+  user.register()
    res.send("Thanks for trying to register") 
 }
 
