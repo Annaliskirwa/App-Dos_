@@ -9,6 +9,13 @@ User.prototype.cleanUp = function(){
     if (typeof(this.data.username) != "string") {this.data.username = ""}
     if (typeof(this.data.email) != "string") {this.data.email = ""}
     if (typeof(this.data.password) != "string") {this.data.password = ""}
+
+    //get rid of any bogus properties
+    this.data = {
+        username: this.data.username,
+        email: this.data.email,
+        password: this.data.password
+    }
 }
 
 User.prototype.validate = function(){
