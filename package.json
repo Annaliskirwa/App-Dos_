@@ -33,7 +33,7 @@
     "nodemon": "^2.0.4",
     "sanitize-html": "^1.27.3",
     "socket.io": "^2.3.0",
-    "validator": "^13.1.1",
+    "validator": "^13.5.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
