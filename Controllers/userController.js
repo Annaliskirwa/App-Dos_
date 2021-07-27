@@ -11,7 +11,9 @@ user.login().then(function(result){
 })
 }
 
-exports.logout = function(){
+exports.logout = function(req, res){
+  req.session.destroy()
+  res.send("You are now logged out")
     
 }
 
