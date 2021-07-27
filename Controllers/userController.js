@@ -1,3 +1,4 @@
+const { render } = require('../app')
 const User = require('../models/User')
 
 exports.login = function(req, res){
@@ -27,7 +28,7 @@ res.send("Congrats, there are no errors")
 
 exports.home = function(req, res){
   if (req.session.user) {
-res.send("Welcome to actual application")
+res.render('home-dashboard', {username: req.session.user.username})
   } else {
     res.render('home-guest')
   }
