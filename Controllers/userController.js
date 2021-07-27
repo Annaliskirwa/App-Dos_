@@ -9,7 +9,7 @@ user.login().then(function(result){
     res.redirect('/')
   })
 }).catch(function(e){
-  res.send(e)
+  res.redirect('/')
 })
 }
 
