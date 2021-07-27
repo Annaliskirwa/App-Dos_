@@ -9,7 +9,10 @@ user.login().then(function(result){
     res.redirect('/')
   })
 }).catch(function(e){
-  res.redirect('/')
+  req.flash('errors', e)
+  req.session.save(function(){
+    res.redirect('/')
+  })
 })
 }
 
