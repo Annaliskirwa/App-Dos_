@@ -72,5 +72,8 @@ exports.ifUserExists = function (req, res, next){
 }
 
 exports.profilePostsScreen = function (req, res){
-  res.render('profile')
+  res.render('profile', {
+    profileUsername: req.profileUser.username,
+    profileAvatar: req.profileUser.avatar
+  })
 }
