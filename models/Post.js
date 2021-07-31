@@ -71,7 +71,7 @@ Post.findSingleById = function(id){
             console.log(posts[0])
             resolve(posts[0])
         }else{
-            reject(errors)
+            reject()
         }
     })
 
