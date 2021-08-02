@@ -21,3 +21,6 @@ exports.viewSingle = async function(req, res){
         res.render('404')
     }
 }
+exports.viewEditScreen = function(req, res){
+    res.render('edit-post')
+}
