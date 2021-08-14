@@ -7,11 +7,13 @@ export default class Search {
         this.closeIcon = document.querySelector(".close-live-search")
         this.inputField = document.querySelector("#live-search-field")
         this.resultsArea = document.querySelector(".live-search-results")
+        this.loaderIcon = document.querySelector(".circle-loader")
         this.events()
      
     }
     //2. Events
     events () {
+        this.inputField.addEventListener("keyup", ()=> this.keyPressHandler())
         this.closeIcon.addEventListener("click", (e)=> this.closeOverlay())
         this.headerSearchIcon.addEventListener("click", (e)=> {
             e.preventDefault()
@@ -20,6 +22,12 @@ export default class Search {
     }
 
     //3. Methods
+    keyPressHandler(){
+      this.showLoaderIcon ()
+    }
+    showLoaderIcon(){
+      this.loaderIcon.classList.add("circle-loader--visible")
+    }
     openOverlay(){
         this.overlay.classList.add("search-overlay--visible")
         setTimeout(()=> this.inputField.focus(),50)
