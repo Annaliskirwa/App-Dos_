@@ -5,6 +5,7 @@ export default class Search {
         this.headerSearchIcon = document.querySelector(".header-search-icon")
         this.overlay = document.querySelector(".search-overlay")
         this.closeIcon = document.querySelector(".close-live-search")
+        this.inputField = document.querySelector("#live-search-field")
         this.events()
      
     }
@@ -20,6 +21,7 @@ export default class Search {
     //3. Methods
     openOverlay(){
         this.overlay.classList.add("search-overlay--visible")
+        setTimeout(()=> this.inputField.focus(),50)
     }
     closeOverlay(){
         this.overlay.classList.remove("search-overlay--visible")
