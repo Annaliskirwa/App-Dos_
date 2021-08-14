@@ -4,11 +4,13 @@ export default class Search {
         this.injectHTML()
         this.headerSearchIcon = document.querySelector(".header-search-icon")
         this.overlay = document.querySelector(".search-overlay")
+        this.closeIcon = document.querySelector(".close-live-search")
         this.events()
      
     }
     //2. Events
     events () {
+        this.closeIcon.addEventListener("click", (e)=> this.closeOverlay())
         this.headerSearchIcon.addEventListener("click", (e)=> {
             e.preventDefault()
             this.openOverlay()
@@ -18,6 +20,9 @@ export default class Search {
     //3. Methods
     openOverlay(){
         this.overlay.classList.add("search-overlay--visible")
+    }
+    closeOverlay(){
+        this.overlay.classList.remove("search-overlay--visible")
     }
     injectHTML(){
         document.body.insertAdjacentHTML('beforeend', `
