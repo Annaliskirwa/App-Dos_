@@ -6,6 +6,7 @@ export default class Search {
         this.overlay = document.querySelector(".search-overlay")
         this.closeIcon = document.querySelector(".close-live-search")
         this.inputField = document.querySelector("#live-search-field")
+        this.resultsArea = document.querySelector(".live-search-results")
         this.events()
      
     }
@@ -40,7 +41,7 @@ export default class Search {
           <div class="search-overlay-bottom">
             <div class="container container--narrow py-3">
               <div class="circle-loader"></div>
-              <div class="live-search-results live-search-results--visible">
+              <div class="live-search-results ">
                 <div class="list-group shadow-sm">
                   <div class="list-group-item active"><strong>Search Results</strong> (4 items found)</div>
       
