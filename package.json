@@ -4,13 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "watch": "nodemon db",
+    "watch": "nodemon db --ignore frontend-js --ignore public/ & webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.0.0",
@@ -21,8 +24,10 @@
     "marked": "^0.6.2",
     "md5": "^2.2.1",
     "mongodb": "^3.2.6",
-    "nodemon": "^1.19.0",
+    "nodemon": "^1.19.4",
     "sanitize-html": "^1.20.1",
-    "validator": "^11.0.0"
+    "validator": "^11.0.0",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2"
   }
 }
