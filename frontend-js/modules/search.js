@@ -1,3 +1,4 @@
+import axios from 'axios'
 export default class Search {
     //1. select DOM elements and keep track of useful data
     constructor() {
@@ -30,13 +31,17 @@ export default class Search {
       if (value != "" && value != this.previousValue){
         clearTimeout(this.typingWaitTimer)
         this.showLoaderIcon ()
-        this.typingWaitTimer = setTimeout(() => this.sendRequest(), 3000)
+        this.typingWaitTimer = setTimeout(() => this.sendRequest(), 1000)
       }
 
       this.previousValue =  value
     }
     sendRequest(){
-      alert("Send request method just ran")
+      axios.post('/search',{searchTerm: this.inputField.value}).then(()=>{
+
+      }).catch(()=>{
+        alert("The request failed")
+      })
     }
     showLoaderIcon(){
       this.loaderIcon.classList.add("circle-loader--visible")
