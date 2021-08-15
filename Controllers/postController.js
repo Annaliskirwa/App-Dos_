@@ -1,3 +1,4 @@
+const { raw } = require('express')
 const Post = require('../models/Post')
 
 exports.viewCreateScreen = function(req, res) {
@@ -74,5 +75,14 @@ exports.delete = function(req, res) {
   }).catch(() => {
     req.flash("errors", "You do not have permission to perform that action.")
     req.session.save(() => res.redirect("/"))
+  })
+}
+
+exports.search = function(req, res){
+  Post.search(req.body.searchTerm).then((posts)=>{ 
+    res.json(posts)
+  }).catch(()=>{
+    res.json([])
+
   })
 }
