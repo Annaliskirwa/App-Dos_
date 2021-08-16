@@ -3,14 +3,19 @@ export default class Chat {
        this.chatWrapper = document.querySelector("#chat-wrapper")
        this.openIcon = document.querySelector(".header-chat-icon")
        this.injectHTML()
-        this.events()
+       this.closeIcon = document.querySelector(".chat-title-bar-close")
+       this.events()
     }
     //Events
     events(){
         this.openIcon.addEventListener("click",()=> this.showChat())
+        this.closeIcon.addEventListener("click", ()=> this.hideChat())
     }
 
     //Methods
+    hideChat(){
+        this.chatWrapper.classList.remove("chat--visible")
+    }
     showChat(){
         this.chatWrapper.classList.add("chat--visible")
     }
