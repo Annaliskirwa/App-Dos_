@@ -92,8 +92,8 @@ Follow.getFollowingById = function (id){
   return new Promise(async (resolve, reject)=>{
     try{
       let followers = await followsCollection.aggregate([
-        {$match:{authorId:id}},
-        {$lookup:{from:"users", localField:"followId", foreignField: "_id", as: "userDoc"}},
+        {$match:{authorId: id}},
+        {$lookup:{from:"users", localField:"followedId", foreignField: "_id", as: "userDoc"}},
         {$project:{
           username: {$arrayElemAt:["$userDoc.username", 0]},
           email: {$arrayElemAt:["$userDoc.email", 0]}
