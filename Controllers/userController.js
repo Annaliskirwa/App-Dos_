@@ -97,7 +97,8 @@ exports.profilePostsScreen = function(req, res) {
       profileUsername: req.profileUser.username,
       profileAvatar: req.profileUser.avatar,
       isFollowing: req.isFollowing,
-      isVisitorsProfile: req.isVisitorsProfile
+      isVisitorsProfile: req.isVisitorsProfile,
+      count: {postCount: req.postCount, followerCount: req.followerCount, followingCount: req.followingCount}
     })
   }).catch(function() {
     res.render("404")
@@ -114,7 +115,9 @@ exports.profileFollowersScreen = async function (req, res){
     profileUsername: req.profileUser.username,
     profileAvatar: req.profileUser.avatar,
     isFollowing: req.isFollowing,
-    isVisitorsProfile: req.isVisitorsProfile
+    isVisitorsProfile: req.isVisitorsProfile,
+    count: {postCount: req.postCount, followerCount: req.followerCount, followingCount: req.followingCount}
+   
   })
 
   }catch{
@@ -130,7 +133,9 @@ exports.profileFollowingScreen = async function (req, res){
     profileUsername: req.profileUser.username,
     profileAvatar: req.profileUser.avatar,
     isFollowing: req.isFollowing,
-    isVisitorsProfile: req.isVisitorsProfile
+    isVisitorsProfile: req.isVisitorsProfile,
+    count: {postCount: req.postCount, followerCount: req.followerCount, followingCount: req.followingCount}
+   
   })
 
   }catch{
