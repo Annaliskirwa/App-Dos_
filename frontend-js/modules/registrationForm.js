@@ -29,6 +29,9 @@ export default class RegistrationForm{
         if (this.username.value != "" && !/^([a-zA-Z0-9]+)$/.test(this.username.value)){
             this.showValidationError(this.username,"Username can only contain letters and numbers")
         }
+        if (this.username.value.length > 30){
+            this.showValidationError(this.username, "Username cannot be more than 30 characters long")
+        }
         if (!this.username.errors){
             this.hideValidationError(this.username)
         }
@@ -42,7 +45,9 @@ export default class RegistrationForm{
         el.errors = true
     }
     usernameAfterDelay(){
-        
+      if (this.username.value.length < 3){
+          this.showValidationError(this.username,"Username must be at least 3 characters")
+      }  
     }
 
     insertValidationElements(){
