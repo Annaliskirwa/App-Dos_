@@ -8,6 +8,8 @@ export default class RegistrationForm{
         this.username.previousValue = ""
         this.email = document.querySelector("#email-register")
         this.email.previousValue = ""
+        this.password = document.querySelector("#password-register")
+        this.password.previousValue = ""
         this.events()
     }
     //Events
@@ -17,6 +19,9 @@ export default class RegistrationForm{
         })
         this.email.addEventListener("keyup" ,() => {
             this.isDifferent(this.email, this.emailHandler)
+        })
+        this.password.addEventListener("keyup" ,() => {
+            this.isDifferent(this.password, this.passwordHandler)
         })
     }
     //Methods
@@ -31,6 +36,25 @@ export default class RegistrationForm{
         this.usernameImmediately()
         clearTimeout(this.username.timer)
         this.username.timer = setTimeout(()=> this.usernameAfterDelay(),800)
+    }
+    passwordHandler(){
+        this.password.errors = false
+        this.passwordImmediately()
+        clearTimeout(this.password.timer)
+        this.password.timer = setTimeout(()=> this.passwordAfterDelay(),800)
+    }
+    passwordImmediately(){
+        if (this.password.value.length > 50){
+            this.showValidationError(this.password, "Your password cannit exceed 50 characters")
+        }
+        if (!this.password.errors){
+            this.hideValidationError(this.password)
+        }
+    }
+    passwordAfterDelay(){
+        if (this.password.value.length < 12){
+            this.showValidationError(this.password,"Password must be atleast 12 characters")
+        }
     }
     emailHandler(){
         this.email.errors = false
