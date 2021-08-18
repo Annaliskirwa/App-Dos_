@@ -30,6 +30,15 @@ export default class RegistrationForm{
         this.password.addEventListener("keyup" ,() => {
             this.isDifferent(this.password, this.passwordHandler)
         })
+        this.username.addEventListener("blur" ,() => {
+            this.isDifferent(this.username, this.usernameHandler)
+        })
+        this.email.addEventListener("blur" ,() => {
+            this.isDifferent(this.email, this.emailHandler)
+        })
+        this.password.addEventListener("blur" ,() => {
+            this.isDifferent(this.password, this.passwordHandler)
+        })
     }
     //Methods
     formSubmitHandler(){
