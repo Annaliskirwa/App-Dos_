@@ -25,10 +25,16 @@ export default class RegistrationForm{
         this.username.timer = setTimeout(()=> this.usernameAfterDelay(),3000)
     }
     usernameImmediately(){
-        console.log("Immediate method just ran")
+        if (this.username.value != "" && !/^([a-zA-Z0-9]+)$/.test(this.username.value)){
+            this.showValidationError(this.username,"Username can only contain letters and numbers")
+        }
+    }
+    showValidationError(el, message){
+        el.nextElementSibling.innerHTML = message
+        el.nextElementSibling.classList.add("liveValidateMessage--visible")
     }
     usernameAfterDelay(){
-        alert("After delay method just ran")
+        
     }
 
     insertValidationElements(){
