@@ -43,7 +43,15 @@ export default class Chat {
        })
     }
     displayMessageFromServer(data){
-        this.chatLog.insertAdjacentHTML('beforeend',`<p>${data.message}</p>`)
+        this.chatLog.insertAdjacentHTML('beforeend',`
+        <div class="chat-other">
+        <a href="#"><img class="avatar-tiny" src="https://gravatar.com/avatar/b9216295c1e3931655bae6574ac0e4c2?s=128"></a>
+        <div class="chat-message"><div class="chat-message-inner">
+          <a href="#"><strong>barksalot:</strong></a>
+          ${data.message}
+        </div></div>
+      </div>
+        `)
     }
     injectHTML(){
         this.chatWrapper.innerHTML = `
