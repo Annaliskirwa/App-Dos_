@@ -2,6 +2,7 @@ import axios from "axios"
 
 export default class RegistrationForm{
     constructor(){
+        this.form = document.querySelector("#registration-form")
         this.allFields =  document.querySelectorAll("#registration-form .form-control")
         this.insertValidationElements()
         this.username = document.querySelector("#username-register")
@@ -10,10 +11,16 @@ export default class RegistrationForm{
         this.email.previousValue = ""
         this.password = document.querySelector("#password-register")
         this.password.previousValue = ""
+        this.username.isUnique = false
+        this.email.isUnique = false
         this.events()
     }
     //Events
     events(){
+        this.form.addEventListener("submit", e=>{
+            e.preventDefault()
+            this.formSubmitHandler()
+        })
         this.username.addEventListener("keyup" ,() => {
             this.isDifferent(this.username, this.usernameHandler)
         })
@@ -25,6 +32,23 @@ export default class RegistrationForm{
         })
     }
     //Methods
+    formSubmitHandler(){
+        this.usernameImmediately()
+        this.usernameAfterDelay()
+        this.emailAfterDelay()
+        this.passwordImmediately()
+        this.passwordAfterDelay()
+
+        if (
+            this.username.isUnique && 
+            !this.username.errors && 
+            this.email.isUnique && 
+            !this.email.errors && 
+            !this.password.errors
+            ){
+            this.form.submit()
+        }
+    }
     isDifferent(el, handler){
         if (el.previousValue != el.value){
             handler.call(this)
