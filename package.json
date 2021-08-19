@@ -2,6 +2,10 @@
   "name": "complex-app",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "main": "app.js",
   "scripts": {
     "watch": "nodemon db --ignore frontend-js --ignore public/ & webpack --watch",
