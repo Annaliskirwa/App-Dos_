@@ -87,6 +87,14 @@ exports.delete = function(req, res) {
   })
 }
 
+exports.apiDelete = function(req, res) {
+  Post.delete(req.params.id, req.apiUser._id).then(() => {
+    res.json("Success")
+    }).catch(() => {
+      res.json("You dont have permission to delete")
+    })
+}
+
 exports.search = function(req, res){
   Post.search(req.body.searchTerm).then((posts)=>{ 
     res.json(posts)
