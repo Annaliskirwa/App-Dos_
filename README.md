@@ -8,8 +8,7 @@
 ReadAndWrite is a web application which one can create posts and read posts. One also has the chance to follow a specific author if the content if that author relates to them.  
 In this web application, you can also chat with your friends. One can update and delete their posts too. And if a specific author isnt relevant to you, you can still unfollow. 
 ## Setup/Installation Requirements
-* The web application only needs a browser to access. Just get the link view it in the browser and sign up.   
-* http://read-andwrite.herokuapp.com/
+* The web application only needs a browser to access. Just click the <a href = "http://read-andwrite.herokuapp.com/">link </a>  and view it in the browser and sign up.   
 * One can also view posts on multiple platforms.  
 * For any collaborator,all you need is the text editor.
 ## Known Bugs
